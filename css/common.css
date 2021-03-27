@@ -1,0 +1,10 @@
+@charset "UTF-8";
+* {
+  font-family: "Hiragino Kaku Gothic ProN";
+}
+
+@font-face {
+  font-family: 'あんず文字';
+  src: url("../img/APJapanesefont.ttf") format("truetype");
+}
+/*# sourceMappingURL=common.css.map */

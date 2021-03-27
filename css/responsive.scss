@@ -1,0 +1,17 @@
+
+$breakpoints:(
+    'ipadpro':'screen and (max-width: 1024px)',
+    'ipad':'screen and (max-width: 768px)',
+    'sur':'screen and (max-width: 540px)',
+    'iphone8+':'screen and (max-width: 414px)',
+    'pixel':'screen and (max-width: 411px)',
+    'iphone8':'screen and (max-width: 375px)',
+    'iphone5':'screen and (max-width: 320px)',
+    'galaho':'screen and (max-width: 280px)'
+);
+
+@mixin mq($breakpoint) {
+    @media #{map-get($breakpoints,$breakpoint)} {
+        @content;
+    }
+}

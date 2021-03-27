@@ -1,0 +1,31 @@
+*{
+    font-family: "Hiragino Kaku Gothic ProN";
+}
+
+@font-face {
+    font-family: 'あんず文字';
+    src: url('../img/APJapanesefont.ttf')format('truetype');
+}
+
+@mixin flex-row {
+    display: flex;
+
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+@mixin size($width,$height) {
+    width: $width + px;
+    height: $height + px;
+}
+@mixin font($size, $weight) {
+    font-size: $size + px;
+    font-weight:$weight;
+}
+@mixin back-ground($path:null) {
+    background-image: url('#{$path}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

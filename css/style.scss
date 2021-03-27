@@ -1,0 +1,885 @@
+@import './common';
+@import './responsive';
+
+.firstview_container{
+    height: 100vh;
+    position: relative;
+    @include flex-column;
+    justify-content: flex-end;
+    video, .overlay, .logo, p, .scrolldown{
+        position: absolute;
+    }
+    video{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .overlay{
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: .3;
+        z-index: 1;
+    }
+    .logo{
+        width: 20%;
+        object-fit: contain;
+        border-radius: 50px;
+        left: 50px;
+        top: 50px;
+        opacity: .9;
+        z-index: 1;
+        @include mq('ipad'){
+            width: 30%;
+        }
+        @include mq('iphone8+'){
+            width: 40%;
+        }
+    }
+    p{
+        @include font(100,600);
+        color: white;
+        bottom: 100px;
+        right: 30px;
+        z-index: 1;
+        @include mq('ipad'){
+            font-size: 80px;
+        }
+        @include mq('sur'){
+            font-size: 50px;
+        }
+        @include mq('iphone8+'){
+            font-size: 45px;
+        }
+        @include mq('iphone8'){
+            font-size: 40px;
+        }
+        @include mq('galaho'){
+            font-size: 35px;
+        }
+    }
+    .scrolldown{
+        position: static;
+        width: 80px;
+        z-index: 1;
+        margin: 0 auto;
+        @include mq('sur'){
+            width: 60px;
+        }
+        @keyframes scroll {
+            0%{
+                transform: translateY(-30px);
+                opacity: 100%;
+            }
+            100%{
+                transform: translateY(30px);
+                opacity: 0%;
+            }
+        }
+        animation: scroll 1.4s infinite;
+    }
+}
+
+.message_container{
+    min-height: 80vh;
+    @include flex-column;
+    align-items: center;
+    position: relative;
+    .backgrund{
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .2;
+    }
+    .messagetitle,ul,.textm{
+        position: relative;
+        z-index: 1;
+    }
+    .messagetitle{
+        margin-top: 30px;
+        width: 30%;
+        object-fit: contain;
+        @include mq('ipadpro'){
+            width: 50%;
+        }
+        @include mq('iphone8+'){
+            width: 60%;
+        }
+    }
+    ul{
+        width: 90%;
+        max-width: 800px;
+        padding: 20px;
+        background-image: url('../img/paper.jpg');
+        list-style-type: none;
+        border: blueviolet 1px solid;
+        border-radius: 10px;
+        opacity: .7;
+        box-shadow: 5px 5px black;
+        margin-top: 50px;
+        @include mq('iphone5'){
+            margin-top: 20px;
+        }
+        li{
+            width: 100%;
+            height: 30px;
+            margin: 10px 0;
+            @include flex-row;
+            align-content: center;
+            .fa-check{
+                font-family: "Font Awesome 5 Free";
+                @include font(20,550);
+                margin-right: 20px;
+                text-decoration: none;
+                @include mq('sur'){
+                    font-size: 18px;
+                }
+                @include mq('iphone8+'){
+                    font-size: 15px;
+                }
+            }
+            p{
+                @include font(30,550);
+                text-decoration: underline black 1px;
+                font-family: 'あんず文字';
+                @include mq('sur'){
+                    font-size: 18px;
+                }
+                @include mq('iphone8+'){
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    .textm{
+        @include font(35,600);
+        margin: 50px 0;
+        .mobile{
+            display: none;
+            @include mq('iphone8+'){
+                display: inline-block;
+            }
+        }
+        @include mq('ipad'){
+            font-size: 28px;
+        }
+        @include mq('sur'){
+            font-size: 20px;
+        }
+        @include mq('iphone5'){
+            font-size: 18px;
+            margin-top: 30px;
+        }
+        @include mq('galaho'){
+            font-size: 15px;
+        }
+    }
+}
+/* 桜を表示するコンテナのスタイル */
+.cherry-blossom {
+    position: relative;
+    height: 100vh; /* コンテナの高さ */
+    width: 100%; /* コンテナの横幅 */
+    overflow: hidden; /* コンテナからはみ出した要素を隠す */
+  }
+  
+  /* 桜の花びらのスタイル */
+  .petal {
+    position: absolute;
+    background-color: #ffc0cb; /* 花びらの色 */
+    border-radius: 150% 0 150% 0;
+    animation: animate-petal 10s linear;
+  }
+  
+  .petal::after {
+    content: "";
+    position: absolute;
+    top: -14%;
+    left: -10%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #ffc0cb;
+    border-radius: 150% 0 150% 0;
+    transform: rotate(15deg);
+  }
+  
+  /* 花びらが降るアニメーション */
+  @keyframes animate-petal {
+    0% {
+      top: 0;
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      top: 100vh;
+      transform: rotate(3000deg);
+    }
+}
+
+.income_container{
+    height: 70VH;
+    background-color: #ffc1ff;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+    .textwrapper{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: 5px 5px #e7e7e7;
+        padding: 50px;
+        @include mq('iphone8+'){
+            padding: 20px;
+        }
+        @include mq('ipad'){
+            width: 90%;
+            height: 80%;
+        }
+        .title, .textm, .texts{
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+            @include mq('sur'){
+                margin-bottom: 10px;
+                letter-spacing: 2px
+            }
+            @include mq('iphone8+'){
+                letter-spacing: 1px;
+            }
+        }
+        .title{
+            @include font(40,600);
+            @include mq('ipad'){
+                font-size: 35px;
+            }
+            @include mq('sur'){
+                font-size: 30px;
+            }
+            @include mq('iphone8+'){
+                font-size: 25px;
+            }
+            @include mq('iphone5'){
+                font-size: 20px;
+            }
+            @include mq('galaho'){
+                font-size: 18px;
+            }
+        }
+        .textm{
+            @include font(35,600);
+            @include mq('ipad'){
+                font-size: 30px;
+            }
+            @include mq('sur'){
+                font-size: 22px;
+            }
+            @include mq('iphone8+'){
+                font-size: 18px;
+            }
+            @include mq('iphone5'){
+                font-size: 15px;
+            }
+            @include mq('galaho'){
+                font-size: 13px;
+            }
+        }
+        .texts{
+            @include font(25,530);
+            line-height: 40px;
+            @include mq('ipad'){
+                font-size: 20px;
+            }
+            @include mq('sur'){
+                font-size: 15px;
+            }
+            @include mq('iphone8'){
+                font-size: 12px;
+                line-height: 30px;
+            }
+            @include mq('iphone5'){
+                line-height: 27px;
+            }
+        }
+    }
+}
+
+.aboutus_container{
+    height: 70vh;
+    background-image: url('../img/aboutus.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    .overlay{
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        opacity: .5;
+        z-index: 1;
+        position: absolute;
+    }
+    .textwrapper{
+        min-width: 40%;
+        min-height: 40%;
+        align-items: center;
+        background-color: black;
+        opacity: .5;
+        position: absolute;
+        right: 20%;
+        top: 20%;
+        z-index: 2;
+        padding: 30px;
+        @include mq('sur'){
+            right: 10%;
+            top: 10%;
+            padding: 10px;
+        }
+        p{
+            z-index: 1;
+            color: white;
+        }
+        .title{
+            @include font(35,530);
+            margin-bottom: 30px;
+            @include mq('sur'){
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            @include mq('iphone5'){
+                font-size: 20px;
+            }
+        }
+        .text{
+            @include font(25,530);
+            width: 90%;
+            line-height: 40px;
+            letter-spacing: 3px;
+            @include mq('sur'){
+                font-size: 20px;
+                line-height: 30px;
+                letter-spacing: 2px;
+            }
+            @include mq('iphone5'){
+                font-size: 17px;
+                line-height: 20px;
+            }
+        }
+    }
+}
+
+.service_container{
+    width: 100%;
+    height: 100%;
+    .sectiontitle{
+        width: 100%;
+        @include font(60,600);
+        @include flex-row;
+        letter-spacing: 7px;
+        background: linear-gradient(150deg, #ff1eff, #9b38ff,  #1b1bdd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        justify-content: center;
+        margin-bottom: 20px;
+        @include mq('iphone5'){
+            font-size: 40px;
+        }
+    }
+    ul{
+        width: 100%;
+        list-style-type: none;
+        margin-bottom: 50px;
+        li{
+            width: 100%;
+            min-height: 300px;
+            position: relative;
+            margin-bottom: 20px;
+            @include mq('sur'){
+                min-height: 350px;
+            }
+            @include mq('iphone8+'){
+                min-height: 400px;
+            }
+            .servicewrapper{
+                position: absolute;
+                width: 60%;
+                height: 300px;
+                @include flex-column;
+                border: 1px solid;
+                padding: 20px;
+                opacity: 0;
+                border-radius: 20px;
+                box-shadow: 7px 5px #ffc1ff;
+                @include mq('ipad'){
+                    width: 80%;
+                }
+                @include mq('sur'){
+                    width: 90%;
+                    height: 100%;
+                    padding: 15px;
+                }
+                .servicetitle{
+                    height: 10%;
+                    margin-bottom: 20px;
+                    @include mq('iphone8+'){
+                        margin-bottom: 0px;
+                    }
+                }
+                .serviceitems{
+                    @include flex-row;
+                    align-items: center;
+                    width: 100%;
+                    height: 80%;
+                    @include mq('iphone8+'){
+                        @include flex-column;
+                        height: 90%;
+                    }
+                    .imgbox{
+                        height: 100%;
+                        width: 40%;
+                        margin-right: 10px;
+                        overflow: hidden;
+                        @include mq('iphone8+'){
+                            width: 100%;
+                            height: 60%;
+                        }
+                        img{
+                            height: 100%;
+                            width:100%;
+                            object-fit: cover;
+                            transition: .5s;
+                            &:hover{
+                                transform: scale(1.1);
+                                z-index: 2;
+                            }
+                        }
+                    }
+                    .text{
+                        height: 90%;
+                        width: 60%;
+                        @include mq('sur'){
+                            font-size: 15px;
+                        }
+                        @include mq('iphone8+'){
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+            .odd_fade_in{
+                animation: showo 2s forwards;
+                @keyframes showo {
+                    0%{
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    100%{
+                        transform: translateX(10%);
+                        opacity: 1;
+                    }
+                }
+                @include mq('sur'){
+                    @keyframes showo {
+                        0%{
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                        100%{
+                            transform: translateX(5%);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            .even_fade_in{
+                animation: showe 2s forwards;
+                @keyframes showe {
+                    0%{
+                        transform: translateX(-100%);
+                        opacity: 0;
+                    }
+                    100%{
+                        transform: translateX(60%);
+                        opacity: 1;
+                    }
+                }
+                @include mq('ipad'){
+                    @keyframes showe {
+                        0%{
+                            transform: translateX(-100%);
+                            opacity: 0;
+                        }
+                        100%{
+                            transform: translateX(20%);
+                            opacity: 1;
+                        }
+                    }
+                }
+                @include mq('sur'){
+                    @keyframes showe {
+                        0%{
+                            transform: translateX(-100%);
+                            opacity: 0;
+                        }
+                        100%{
+                            transform: translateX(10%);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.belongs_container{
+    @include flex-column;
+    align-items: center;
+    .sectiontitle{
+        @include font(60,600);
+        @include flex-column;
+        align-items: center;
+        background: linear-gradient(100deg, #ff1eff, #9b38ff,  #1b1bdd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 50px;
+        @include mq('iphone8+'){
+            font-size: 50px;
+        }
+        @include mq('iphone5'){
+            font-size: 40px;
+        }
+    }
+    ul{
+        @include flex-row;
+        justify-content: center;
+        width: 70%;
+        min-height: 300px;
+        list-style-type: none;
+        margin: 0 auto 50px;
+        position: relative;
+        overflow: hidden;
+        @include mq('ipad'){
+            width: 90%;
+        }
+        li{
+            width: 250px;
+            height: 100%;
+            margin: 0 20px;
+            display: none;
+            @include mq('ipad'){
+                width: 200px;
+            }
+            @include mq('sur'){
+                margin: 0 10px;
+            }
+            .member_wrapper{
+                @include flex-column;
+                background-color: #ff9eff;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                .imgbox{
+                    width: 100%;
+                    height: 200px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    @include mq('ipad'){
+                        height: 100%;
+                        margin-bottom: 10px;
+                    }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .infowrapper{
+                    width: 100%;
+                    height: 30%;
+                    @include flex-column;
+                    align-items: center;
+                    font-family: 'あんず文字';
+                    .name, .text{
+                        @include mq('sur'){
+                            font-size: 10px;
+                        }
+                        @include mq('iphone8+'){
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+        .after{
+            display: inline-block;
+            opacity: .5;
+            order: 3;
+            transform: scale(.8);
+            transition: 1s;
+            @include mq('iphone8+'){
+                display: none;
+            }
+        }
+        .current{
+            display: inline-block;
+            transform: scale(1.2);
+            transition: 1s;
+            order: 2;
+            .imgbox{
+                img{
+                    transition: .5s;
+                    &:hover{
+                        transform: scale(1.1);
+                        opacity: .6;
+                    }
+                }
+            }
+        }
+        .before{
+            display: inline-block;
+            opacity: .5;
+            transform: scale(.8);
+            transition: 1s;
+            order: 1;
+            @include mq('iphone8+'){
+                display: none;
+            }
+        }
+    }
+}
+
+.flowwapper{
+    @include flex-column;
+    align-items: center;
+    background-image: url('../img/flow.png');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: .7;
+    .sectiontitle{
+        @include font(60,600);
+        background: linear-gradient(100deg, #ff1eff, #9b38ff,  #1b1bdd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 80px;
+        @include mq('iphone8+'){
+            font-size: 45px;
+        }
+        @include mq('iphone5'){
+            font-size: 35px;
+        }
+        @include mq('galaho'){
+            font-size: 28px;
+        }
+    }
+    ul{
+        @include flex-column;
+        align-items: center;
+        width: 70%;
+        margin-bottom: 50px;
+        @include mq('sur'){
+            width: 90%;
+        }
+        li{
+            @include flex-column;
+            width: 80%;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgb(233, 227, 227);
+            position: relative;
+            opacity: 0;
+            @include mq('sur'){
+                width: 100%;
+            }
+            .title, .text{
+                margin-bottom: 10px;
+            }
+            .title{
+                @include font(30,550);
+                color: blue;
+                @include mq('iphone8+'){
+                    font-size: 25px;
+                }
+                @include mq('iphone8'){
+                    font-size: 22px;
+                }
+                @include mq('iphone5'){
+                    font-size: 20px;
+                }
+                @include mq('galaho'){
+                    font-size: 17px;
+                }
+            }
+            .text{
+                letter-spacing: 2px;
+                line-height: 25px;
+            }
+            .step{
+                @include font(35,560);
+            }
+            .line{
+                width: 7%;
+                object-fit: contain;
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                @include mq('iphone8+'){
+                    width: 20%;
+                }
+                @include mq('iphone8'){
+                    width: 15%;
+                }
+                @include mq('iphone5'){
+                    width: 20%;
+                }
+            }
+        }
+        .show{
+            animation: flow_fadein 1s forwards;
+            @keyframes flow_fadein {
+                100%{
+                    opacity: 1;
+                    transform: translateY(-50px);
+                }
+            }
+        }
+    }
+}
+
+.FAQ_container{
+    @include flex-column;
+    min-height: 400px;
+    align-items: center;
+    background-color: #ffead6;
+    .FAQtitle{
+        @include font(30,560);
+        margin: 30px auto 60px;
+    }
+    ul{
+        @include flex-column;
+        width: 60%;
+        list-style-type: none;
+        @include mq('sur'){
+            width: 90%;
+        }
+        li{
+            width: 100%;
+            margin-bottom: 10px;
+            .header, .body{
+                @include font(20,500);
+                @include mq('iphone8'){
+                    font-size: 18px;
+                }
+                @include mq('iphone5'){
+                    font-size: 15px;
+                }
+            }
+            .header{
+                @include flex-row;
+                align-items: center;
+                padding: 5px;
+                background-color: #ffddbc;
+                box-shadow: 5px 5px 10px rgb(119, 112, 112);
+                cursor: pointer;
+                &::before{
+                    @include font(20,550);
+                    font-family: "Font Awesome 5 Free";
+                    content: '\f055';
+                    margin-right: 15px;
+                }
+            }
+            .minus{
+                &::before{
+                    @include font(20,550);
+                    font-family: "Font Awesome 5 Free";
+                    content: '\f056';
+                    margin-right: 15px;
+                }
+            }
+            .body{
+                height: 0px;
+                width: 100%;
+                overflow: hidden;
+                transition: .2s;
+            }
+            .is_open{
+                height: fit-content;
+                padding: 10px;
+                overflow: visible;
+            }
+        }
+    }
+}
+
+.footer_container{
+    height: 200px;
+    position: relative;
+    .ichinana_live{
+        position: absolute;
+        width: 200px;
+        top: 0;
+        left: 0;
+        @include mq('sur'){
+            width: 170px;
+        }
+    }
+    ul{
+        position: absolute;
+        list-style-type: none;
+        @include flex-row;
+        top: 20px;
+        right: 20px;
+        @include mq('sur'){
+            @include mq('iphone8+'){
+                @include flex-column;
+            }
+        }
+        li{
+            margin: 0 10px;
+            a{
+                text-decoration: none;
+                color: black;
+                cursor: pointer;
+                @include mq('sur'){
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+    .copyright{
+        @include flex-column;
+        // width: 500px;
+        position: absolute;
+        right: 20px;
+        bottom: 0px;
+        .logo{
+            width: 250px;
+            @include mq('sur'){
+                width: 200px;
+            }
+            @include mq('iphone5'){
+                width: 150px;
+            }
+        }
+        small{
+            width: 80%;
+            @include mq('sur'){
+                font-size: 10px;
+            }
+            @include mq('iphone5'){
+                font-size: 3px;
+            }
+        }
+    }
+}
