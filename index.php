@@ -88,7 +88,7 @@
               <div class="imgbox">
                 <img src="./img/youtuber_ management.jpg" alt="">
               </div>
-              <p class="text">
+              <p class="text"> 
                 様々な分野のプロフェッショナルが自身のYouTubeチャンネルであなたの商品・サービスを動画で紹介。共感してくれるファン（=見込客）を積極的に集めるためのお手伝いをいたします。
               </p>
             </div>
